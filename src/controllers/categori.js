@@ -29,7 +29,7 @@ pool.on('error',(err)=>{
     getById: function(req,res){
         pool.getConnection(function(err,connection){
             if(err) throw err;
-            connection.query('SELECT * FROM channel WHERE id = ?',[req.params.id],function(error,results){
+            connection.query('SELECT * FROM channel WHERE slug = ?',[req.params.slug],function(error,results){
                 if(error) throw error;
                 res.send({
                     "status": 200,
